@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>체크박스 일괄처리</title>
+<script>
+/*
+id와 name의 공통점 및 차이점 
+1) 공통점: 문서내의 특정 태그 요소들을 지적하기 위함!!
+2) 차이점: id는 중복을 허용하지않고, name 은 중복이 가능하다
+              이때  name이 중복될 경우 내부적으로 배열로 인식!!
+
+*/    
+function checkAll(){
+    var arr=document.getElementsByName("c");
+
+    for(var i=0;i<arr.length;i++){
+        arr[i].checked=document.getElementById("king").checked;
+    }
+}    
+</script>    
+</head>
+<body>
+    <input type="checkbox" id="king" onClick="checkAll()"/>모두체크<br>
+    <input type="checkbox" name="c"/>사과<br>
+    <input type="checkbox" name="c"/>바나나<br>
+    <input type="checkbox" name="c"/>딸기<br>
+    <input type="checkbox" name="c"/>포도<br>
+    <input type="checkbox" name="c"/>아보카도<br>
+    <input type="checkbox" name="c"/>수박<br>
+    <input type="checkbox" name="c"/>파인애플<br>
+    <input type="checkbox" name="c"/>토마토<br>
+    <input type="checkbox" name="c"/>귤<br>
+    <input type="checkbox" name="c"/>천혜향
+</body>
+</html>
