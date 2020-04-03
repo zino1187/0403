@@ -97,8 +97,10 @@ window.addEventListener("load", function(){
 
 });    
 
+
 //에너지 박스 만들기 
 function createHP(){
+    var n=0;
     for(var a=0;a<3;a++){
         for(var i=0;i<3;i++){
             var span = document.createElement("span"); //inline
@@ -110,7 +112,7 @@ function createHP(){
             span.style.position="absolute";
             span.style.left=24+(i*51)+"px";
             span.style.top=15+(a*51)+"px";
-
+            
             //hpArea 에 부착!!!
             hpArea.appendChild(span); 
         }

@@ -94,7 +94,7 @@ window.addEventListener("load", function(){
     getScore(); //점수 출력!!
     createWord();//단어 생성하기!!
 
-    setInterval("move()",500);
+    setInterval("move()",300);
 
 });    
 
@@ -131,7 +131,7 @@ function createWord(){
         span.style.fontWeight="bold";
         span.style.position="absolute";
         span.style.left=(i*75)+"px";
-        span.style.top=-getRandom(0,100)+"px";
+        span.style.top=-getRandom(0,200)+"px";
         span.style.color="#ffffff";
 
         container.appendChild(span);
@@ -160,14 +160,20 @@ function wordCheck(){
 function move(){
     if(flag){
         //반복문으로..모든 span 내려오게..
-        for(var i=0;i<wordArray.length;i++){
+        var len = wordArray.length;
+        
+        for(var i=0;i<len;i++){
             var y = parseInt(wordArray[i].style.top);
-            //console.log(y);
+
+            wordArray[i].style.top=y+10+"px";            
+
             if(y>=550){
-                wordArray[i].style.color="red";
+                container.removeChild(wordArray[i]);//화면에서 제거
+                wordArray.splice(1, i)//배열에서도 제거
+
                 setHp();
             }
-            wordArray[i].style.top=y+10+"px";
+
         }
     }
 }
